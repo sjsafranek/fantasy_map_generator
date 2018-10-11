@@ -1,6 +1,22 @@
-# http://mewo2.com/notes/terrain/
+'''
+Fantasy Map Generator
+---------------------
 
-# http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+## Fantasy Map Generators
+http://mewo2.com/notes/terrain/
+https://github.com/Azgaar/Fantasy-Map-Generator
+
+## Voronoi
+http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+
+## Perlin Noise
+https://medium.com/@yvanscher/playing-with-perlin-noise-generating-realistic-archipelagos-b59f004d8401
+
+
+https://github.com/amitp/mapgen2/blob/master/Map.as
+
+'''
+
 
 import noise
 import random
@@ -39,10 +55,6 @@ layer.CreateField(scaleField)
 #.end
 
 
-
-# perlin noise python
-# https://medium.com/@yvanscher/playing-with-perlin-noise-generating-realistic-archipelagos-b59f004d8401
-
 # defaults
 # scale: number that determines at what distance to view the noisemap.
 scale = 100.0
@@ -55,8 +67,6 @@ lacunarity = 2.0
 # base = 0
 base = random.randint(0,1000)
 
-# options
-# octaves = 8
 
 
 print("generating perlin noise")
