@@ -5,6 +5,16 @@ import numpy as np
 from scipy.spatial import Voronoi
 import shapely.geometry
 import shapely.ops
+import argparse
+
+
+parser = argparse.ArgumentParser(description='Creates voronoi shapefile from random points')
+parser.add_argument('-o', type=str, help='out file', required=True)
+args = parser.parse_args()
+
+outfile = args.o
+if ".shp" != outfile[-4:]:
+    outfile += '.shp'
 
 
 def newLongitude():
@@ -13,9 +23,9 @@ def newLongitude():
 def newLatitude():
     return random.uniform(-85, 85)
 
-
 # Save extent to a new Shapefile
-outShapefile = "tmp/voronoi.shp"
+# outShapefile = "tmp/voronoi.shp"
+outShapefile = outfile
 outDriver = ogr.GetDriverByName("ESRI Shapefile")
 
 # Remove output shapefile if it already exists

@@ -1,8 +1,18 @@
 import os
 from osgeo import ogr
+import argparse
+
+parser = argparse.ArgumentParser(description='Creates shapefile for earth bounding box')
+parser.add_argument('-o', type=str, help='out file', required=True)
+args = parser.parse_args()
+
+outfile = args.o
+if ".shp" != outfile[-4:]:
+    outfile += '.shp'
 
 # Save extent to a new Shapefile
-outShapefile = "tmp/bbox.shp"
+# outShapefile = "tmp/bbox.shp"
+outShapefile = outfile
 outDriver = ogr.GetDriverByName("ESRI Shapefile")
 
 # Remove output shapefile if it already exists
